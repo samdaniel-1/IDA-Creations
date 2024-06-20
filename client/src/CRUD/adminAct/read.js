@@ -8,7 +8,7 @@ function Read(){
 
     const [data,setData] = useState([])
     useEffect(()=>{
-        let url = "http://localhost:23455/read"
+        let url = process.env.REACT_APP_URL+"/read" ||  "http://localhost:23455/read"
         axios.get(url).then(res=>{
             setData(res.data)
         })
