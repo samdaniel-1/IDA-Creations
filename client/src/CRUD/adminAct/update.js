@@ -19,7 +19,7 @@ function Update(){
     const nav = useNavigate()
 
     useEffect(()=>{
-        let url = "http://localhost:23455/edit/"+proid
+        let url = process.env.REACT_APP_URL+"/edit/"+proid ||  "http://localhost:23455/edit/"+proid
         axios.get(url).then((res)=>{
             setName(res.data.name)
             setAge(res.data.age)
@@ -35,7 +35,7 @@ function Update(){
     const handler = (e) =>{
         e.preventDefault()
 
-    let url = "http://localhost:23455/update/"+proid
+    let url = process.env.REACT_APP_URL+"/update/"+proid ||  "http://localhost:23455/update/"+proid
     let key = {
         name:name,
         age:age,
