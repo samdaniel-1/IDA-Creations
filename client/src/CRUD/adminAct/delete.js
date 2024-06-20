@@ -8,7 +8,7 @@ function Delete(){
     const {proid} = useParams()
 
     const hande =() => {
-        let url = "http://localhost:23455/delete/"+proid
+        let url = process.env.REACT_APP_URL+"/delete/"+proid ||  "http://localhost:23455/delete/"+proid
                         axios.delete(url)
                         .then(res=>{
                             if(res.data.status==="deleted")
