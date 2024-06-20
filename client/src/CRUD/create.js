@@ -1,6 +1,7 @@
 import axios from "axios"
 import { FloatingLabel, Form } from "react-bootstrap"
 
+
 function Create()
     {
     const handletest = (e) => {
@@ -23,7 +24,7 @@ function Create()
       nationality:nationality,
       comments:comments
     }
-    let url = "http://localhost:23455/create"
+    let url = process.env.REACT_APP_URL+"/create" || "http://localhost:23455/create"
     axios.post(url,key)
     .then(res=>{
       if(res.data.status === "inserted"){
